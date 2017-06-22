@@ -4,7 +4,7 @@ A d3 hack to allow the Neo4j Browser to render images in nodes.
 
 Works best with square images.
 
-Clone neo4j-browser, follow the yarn build instructions.
+Clone [neo4j-browser](https://github.com/neo4j/neo4j-browser), follow the yarn build instructions.
 
 Copy init.coffee to this location, replacing the original.
 
