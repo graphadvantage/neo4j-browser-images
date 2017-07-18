@@ -87,32 +87,6 @@ do ->
     onTick: noop
   )
 
-  nodeFontAwesomeIcon = new neo.Renderer(
-    onGraphChange: (selection, viz) ->
-      text = selection.selectAll('text').data((node) -> if node.propertyMap.node_icon then [node.propertyMap.node_icon] else [])
-
-      text.enter().append('text')
-      .classed('context-menu-item', true)
-      .attr('text-anchor': 'middle')
-      .attr('pointer-events': 'none')
-      .attr('font-family': 'FontAwesome')
-
-      #.attr('class': (icon) -> icon)
-      #.attr('class': 'fa fa-code')
-      #.attr('text-anchor': 'middle')
-      #.attr('pointer-events': 'none')
-
-      #text
-      #.text((line) -> viz.style.forNode(line.node).get(''))
-      #.attr('dy', (line) ->  line.node.radius/16)
-      #.attr('font-size', (line) -> line.node.radius)
-      #.attr('fill': (line) -> viz.style.forNode(line.node).get('text-color-internal'))
-
-      text.exit().remove()
-
-    onTick: noop
-  )
-
 
   nodeRing = new neo.Renderer(
     onGraphChange: (selection) ->
@@ -136,11 +110,12 @@ do ->
 
   nodeImage = new neo.Renderer(
     onGraphChange: (selection, viz) ->
-      pattern = selection.selectAll('pattern').data((node) -> if node.propertyMap.image_url then [node.propertyMap.image_url] else [])
+      pattern = selection.selectAll('pattern').data((node) -> if node.propertyMap.image_url then [node] else [])
+
       pattern.enter()
       .append('pattern')
       .attr
-        id: 'img-fill'
+        id: (id) -> "img-fill-" + id.id
         patternUnits: 'userSpaceOnUse'
         x: -39
         y: -39
@@ -148,7 +123,7 @@ do ->
         width: 156
 
       .append('image')
-      .attr("xlink:href", (link) -> link)
+      .attr("xlink:href", (link) -> link.propertyMap.image_url)
       .attr
         x: 0
         y: 0
@@ -163,17 +138,19 @@ do ->
 
   nodeImageFill = new neo.Renderer(
     onGraphChange: (selection, viz) ->
-      filledCircle = selection.selectAll('circle.filled').data((node) -> if node.propertyMap.image_url then [node] else [])
+      filledCircle = selection.selectAll('circle.filled').data((node) -> [node])
+
+      #!console.log(filledCircle.data())#
 
       filledCircle.enter()
-      .insert('circle')
+      .append('circle')
       .classed('filled', true)
       .attr
         cx: 0
         cy: 0
         r: (node) -> node.radius-1
         #r: 39
-        fill: 'url(#img-fill)'
+        fill: (id) -> "url(#img-fill-" +  id.id + ")"
 
       filledCircle.exit().remove()
 

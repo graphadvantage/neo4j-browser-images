@@ -1,5 +1,9 @@
 # neo4j-browser-images
 
+![neo4j-browser-images](https://user-images.githubusercontent.com/5991751/28341303-e967c7c0-6bc7-11e7-8f05-8aaaa9c97cca.png)
+
+
+
 A d3 hack to allow the Neo4j Browser to render images in nodes.
 
 Works best with square images.
