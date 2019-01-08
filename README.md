@@ -13,13 +13,13 @@ Works best with smaller (100x100 px) square images.
 
 #### 2. copy this file
 
-***current version (^3.2.11)***
+***current version***
 
 Copy init.js to this location, replacing the original.
 
 /neo4j-browser/src/browser/modules/D3Visualization/lib/visualization/renders/init.js
 
-***older versions (< 3.2.11)***
+***older versions (< commit #846)***
 
 Copy init.coffee to this location, replacing the original.
 
