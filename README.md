@@ -19,13 +19,13 @@ Copy init.js to this location, replacing the original.
 
 /neo4j-browser/src/browser/modules/D3Visualization/lib/visualization/renders/init.js
 
-***older versions (< commit 846)***
+***older versions (< commit \#846)***
 
 Copy init.coffee to this location, replacing the original.
 
 /neo4j-browser/src/browser/modules/D3Visualization/lib/visualization/renders/init.coffee
 
-####3. launch neo4-browser
+#### 3. launch neo4-browser
 
 `$ yarn start`
 
