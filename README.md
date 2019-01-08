@@ -6,15 +6,30 @@
 
 A d3 hack to allow the Neo4j Browser to render images in nodes.
 
-Works best with square images.
+Works best with smaller (100x100 px) square images.
 
-Clone [neo4j-browser](https://github.com/neo4j/neo4j-browser), follow the yarn build instructions.
+#### 1. clone neo4j-browser
+ [neo4j-browser](https://github.com/neo4j/neo4j-browser), follow the yarn build instructions.
+
+#### 2. copy this file
+
+***current version (^3.2.11)***
+
+Copy init.js to this location, replacing the original.
+
+/neo4j-browser/src/browser/modules/D3Visualization/lib/visualization/renders/init.js
+
+***older versions (< 3.2.11)***
 
 Copy init.coffee to this location, replacing the original.
 
 /neo4j-browser/src/browser/modules/D3Visualization/lib/visualization/renders/init.coffee
 
-Restart yarn. Open http://localhost:8080 in your browser.
+####3. launch neo4-browser
+
+`$ yarn start`
+
+ Open http://localhost:8080 in your browser.
 
 Connect to Neo4j using `localhost` and your credentials.
 
