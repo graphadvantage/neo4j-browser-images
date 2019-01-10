@@ -32,8 +32,6 @@ https://registry.npmjs.org/neo4j-browser-image-enabled
 
 ## Run Standalone
 
-Works best with smaller (100x100 px) square images.
-
 #### 1. clone
  [neo4j-browser](https://github.com/neo4j/neo4j-browser), follow the yarn build instructions.
 
